@@ -3,25 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cream: #FFF8F0;
+  --color-coral: #FF6B6B;
+  --color-sunrise: #FF8C42;
+  --color-dawn: #FFB84D;
+  --color-sage: #A8DADC;
+  --color-deep: #1D3557;
+  --background: var(--color-cream);
+  --foreground: var(--color-deep);
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-warm-cream text-warm-deep font-sans;
 }
 
 @layer utilities {
+  .bg-warm-gradient {
+    @apply bg-gradient-to-br from-warm-cream via-[#FFE5D0] to-warm-sunrise;
+  }
+
+  .bg-grain {
+    background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 25px 25px;
+  }
+
   .text-balance {
     text-wrap: balance;
+  }
+
+  .soft-shadow {
+    @apply shadow-soft;
   }
 }
