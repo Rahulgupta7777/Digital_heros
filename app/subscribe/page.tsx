@@ -55,13 +55,13 @@ export default function SubscribePage() {
   async function handleCheckout(plan: 'monthly' | 'yearly') {
     setLoading(true);
     try {
-      // For now, just log that we would create a checkout session
-      // In production, this would call a server action that creates a Stripe session
-      console.log('Would create checkout session for plan:', plan);
-      // window.location.href = checkoutUrl;
+      if (plan === 'monthly') {
+        window.location.href = 'https://buy.stripe.com/test_00wcMY18v85D0CD69w9sk00';
+      } else {
+        console.log('Would create checkout session for plan:', plan);
+      }
     } catch (error) {
       console.error('Checkout error:', error);
-    } finally {
       setLoading(false);
     }
   }
